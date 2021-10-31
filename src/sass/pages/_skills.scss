@@ -73,6 +73,7 @@
     .skills-graph-info {
       // TEMP  for first draft
       opacity: 0;
+      pointer-events: none;
 
       @include flex;
       flex-direction: column;
