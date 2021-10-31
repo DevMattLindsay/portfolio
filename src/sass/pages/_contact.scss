@@ -1,0 +1,60 @@
+.section-contact {
+
+  .section-header {
+    text-align: center;
+  }
+
+
+  .contact-form {
+
+    .form-input-wrap {
+      position: relative;
+      width: 100%;
+      margin: 12px 0;
+
+      .form-input {
+        width: inherit;
+        min-height: 50px;
+        padding: 5px 10px;
+        border: 0;
+        background-color: #2B2B2B;
+        color: #8D8D8D;
+
+        &.-textarea {
+          display: block;
+          resize: none;
+          min-height: 200px;
+        }
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0%;
+        height: 2px;
+        background-color: $color_teal;
+        transition:
+          width 0.15s linear,
+          background-color 0.15s linear;
+      }
+
+      &.-input-init {
+        &:after {
+          width: 100%;
+        }
+      }
+      &.-input-invalid {
+        &:after {
+          background-color: #F00;
+          width: 100%;
+        }
+      }
+    }
+
+    .contact-form-bottom {
+      padding: 30px 0;
+      text-align: center;
+    }
+  }
+}

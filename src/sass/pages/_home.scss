@@ -1,0 +1,85 @@
+.section-home {
+  position: relative;
+
+  .home-bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+
+  .home-header {
+    font-family: $font_bold;
+    font-size: 4em;
+  }
+  .home-subheader {
+    font-size: 1.4em;
+    padding: 0 0 15px;
+    color: $color_grey;
+
+    .-carot {
+      font-size: 1.2em;
+      font-family: monospace;
+      color: $color_primary;
+    }
+  }
+  .btn-swipe {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid $color_primary;
+    padding: 15px 45px;
+
+    &:hover {
+      .bg {
+        width: 110%;
+      }
+      .text {
+        color: $color_white;
+      }
+    }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: -5%;
+      z-index: -1;
+      width: 0;
+      height: 100%;
+      background-color: $color_primary;
+      transition: width 0.15s linear;
+      transform: skewX(-10deg);
+    }
+    .text {
+      font-size: 1.05em;
+      font-family: $font_semibold;
+      color: $color_primary;
+      transition: color 0.15s linear;
+      letter-spacing: 3px;
+    }
+  }
+}
+
+@include tablet {
+  .section-home {
+    .home-header {
+      font-size: 3.2em;
+    }
+    .home-subheader {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@include mobile {
+  .section-home {
+    .home-header {
+      font-size: 2.8em;
+    }
+    .home-subheader {
+      font-size: 1.1em;
+    }
+  }
+};

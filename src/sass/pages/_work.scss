@@ -1,0 +1,118 @@
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.work-row {
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	&.work-project {
+		.work-experience {
+			background-color: $color_darkgrey;
+		}
+	}
+}
+
+.work-experience {
+	padding-top: 15px;
+
+  .experience-title {
+		font-size: 1.35em;
+		font-family: $font_semibold;
+  }
+
+  .experience-title-project {
+		font-size: 1.25em;
+		font-family: $font_semibold;
+		color: $color_blue;
+  }
+
+  .experience-subtitle {
+		font-size: 0.95em;
+		color: $color_lightgrey;
+  }
+
+  .experience-description {
+		margin-top: 15px;
+  }
+}
+
+.work-block {
+  position: relative;
+  overflow: hidden;
+	@include flex;
+	align-items: center;
+	max-width: 450px;
+  padding: 0;
+  background-color: $color_darkgrey;
+  cursor: pointer;
+
+  .work-block-image {
+    width: 100%;
+    padding: 15px;
+  }
+  .work-block-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+		transform: translate(-50%, -50%);
+    display: block;
+    width: calc(100% - 30px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    background: linear-gradient(-45deg, rgba(#ee7752, 0.30), rgba(#e73c7e, 0.30), rgba(#23a6d5, 0.30), rgba(#23d5ab, 0.30));
+    background-size: 300% 300%;
+    animation: gradient 4s ease infinite;
+
+		&:before {
+			content: "";
+			display: block;
+			padding-top: 100%;
+		}
+
+    span {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 20px 0;
+      border-radius: 8px 8px 0 0;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-family: $font_semibold;
+      letter-spacing: 2px;
+      background-color: $color_darkgrey;
+			color: $color_body;
+    }
+  }
+
+  &:hover {
+    .work-block-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+
+@include laptop {
+	.work-row {
+		justify-content: center;
+		margin: 15px 0;
+
+		&.work-project {
+			background-color: $color_darkgrey;
+		}
+	}
+
+	.work-block {
+		max-width: 350px;
+	}
+};

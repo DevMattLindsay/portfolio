@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Matthew Lindsay</title>
+		<link rel='shortcut icon' type='image/x-icon' href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/min/style.min.css">
+		<!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+		<!-- <script defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo($this->config->item('google_api_key')); ?>"></script> -->
+	</head>
+  <body>
+
+
+	<% if (typeof(email) !== 'undefined') { %>
+		<% if (email.success == true) { %>
+			<div class="alert alert-success" role="alert">
+				<strong>E-Mail Sent!</strong>
+			</div>
+		<% } else { %>
+			<div class="alert alert-danger" role="alert">
+				<strong>E-Mail Failed!</strong> something went wrong, just send me an email to <strong>MatthewLindsay2@gmail.com</strong>
+			</div>
+		<% } %>
+	<% } %>

@@ -1,0 +1,118 @@
+body {
+	@include flex;
+	flex-direction: column;
+	min-width: 320px;
+	min-height: 100vh;
+	color: $color_body;
+	background-color: $color_bg;
+	font-family: $font_main;
+	padding-left: 220px + 30px;
+}
+
+.section-full {
+	min-height: 100vh;
+	@include flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.section-header {
+	font-family: $font_bold;
+	color: $color_primary;
+}
+
+.btn {
+	padding: 8px 20px;
+	min-width: 140px;
+
+	&.btn-iconed {
+		@include flex;
+		padding: 0;
+		font-family: $font_semibold;
+		color: $color_body;
+		background-color: $color_primary;
+		transition: background-color 0.15s ease-in;
+
+		.btn-iconed-text {
+			@include flex;
+			align-items: center;
+			justify-content: center;
+			flex: 1;
+			height: 100%;
+		}
+		.btn-iconed-icon {
+			@include flex;
+			align-items: center;
+			justify-content: center;
+			flex: 0 0 40px;
+			height: 40px;
+			font-size: 20px;
+			background-color: darken($color_primary, 5%);
+			transition: background-color 0.15s ease-in;
+		}
+
+		&:hover {
+			background-color: darken($color_primary, 3%);
+
+			.btn-iconed-icon {
+				background-color: darken($color_primary, 8%);
+			}
+		}
+
+		&.-iconed-blue {
+			background-color: $color_blue;
+
+			.btn-iconed-icon {
+				background-color: darken($color_blue, 7%);
+			}
+
+			&:hover {
+				background-color: darken($color_blue, 4%);
+
+				.btn-iconed-icon {
+					background-color: darken($color_blue, 9%);
+				}
+			}
+		}
+	}
+}
+
+.-anim-fade-right, .-anim-fade-up, .-anim-fade-left {
+	position: relative;
+	opacity: 0;
+	transition:
+		top 0.30s ease-in,
+		left 0.30s ease-in,
+		opacity 0.30s ease-in;
+
+	&.-anim-fade-up { top: 30px; }
+	&.-anim-fade-right { left: -30px; }
+	&.-anim-fade-bottom { top: -30px; }
+	&.-anim-fade-left { left: 30px; }
+
+	&.animate {
+		left: 0;
+		top: 0;
+		opacity: 1;
+	}
+}
+
+.alert {
+	position: absolute;
+	top: 15px;
+}
+
+
+
+@include laptop {
+	body {
+		padding-left: 0;
+	}
+	.section-full {
+		align-items: center;
+
+		.container.row {
+			padding: 0;
+		}
+	}
+};

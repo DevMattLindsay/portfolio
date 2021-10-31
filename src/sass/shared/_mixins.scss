@@ -1,0 +1,99 @@
+@mixin flex() {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin inline-flex() {
+	display: -ms-inline-flex;
+	display: -webkit-inline-flex;
+	display: inline-flex;
+}
+
+@mixin flex-item($grow, $shrink, $basis) {
+	-ms-flex: $grow $shrink $basis;
+	flex: $grow $shrink $basis;
+	max-width: $basis;
+}
+
+@mixin grid() {
+	display: -ms-grid;
+	display: -webkit-grid;
+	display: grid;
+}
+
+@mixin appearance-none() {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+@mixin linear-gradient($type, $colorA, $colorB) {
+	background-image: -webkit-linear-gradient($type, $colorA, $colorB);
+	background-image: -o-linear-gradient($type, $colorA, $colorB);
+	background-image: linear-gradient($type, $colorA, $colorB);
+}
+
+// Media Querries
+
+@mixin desktop {
+	@media (max-width: #{1399px}) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (max-width: #{1199px}) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape {
+	@media (max-width: #{1024px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: #{991px}) {
+		@content;
+	}
+}
+
+@mixin not-mobile {
+	@media (min-width: #{768px}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{767px}) {
+		@content;
+	}
+}
+
+@mixin extra-small {
+	@media (max-width: #{575px}) {
+		@content;
+	}
+}
+
+// Supports
+
+@mixin ie {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+@mixin edge {
+	@supports (-ms-ime-align: auto) {
+		@content;
+	}
+}
+
+@mixin edge-and-ie {
+	@include ie { @content; };
+	@include edge { @content; };
+}

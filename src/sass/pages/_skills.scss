@@ -1,0 +1,94 @@
+.section-skills {
+
+  .skills-graph {
+    @include flex;
+    padding-top: 100px;
+
+    .skills-graph-labels {
+      @include flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-right: 15px;
+      text-align: right;
+      font-family: $font_semibold;
+
+      .-label {
+
+      }
+    }
+    .skills-graph-bars {
+      position: relative;
+      flex: 1;
+      @include flex;
+      flex-direction: column;
+      border-left: 1px solid $color_body;
+      border-right: 1px solid $color_body;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        z-index: -1;
+        width: 1px;
+        height: 100%;
+        background-color: $color_body;
+      }
+
+      .-bar {
+        width: 0px;
+        height: 50px;
+        margin: 15px 0;
+        transition: width 0.50s linear;
+
+        &.animate {
+          &.-frontend { width: 80%; }
+          &.-backend { width: 60%; }
+          &.-react { width: 40%; }
+        }
+
+        &.-frontend { background-color: $color_teal; }
+        &.-backend { background-color: $color_magenta; }
+        &.-react { background-color: $color_blue; }
+      }
+
+      .skills-levels {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 100%;
+
+        span {
+          position: absolute;
+          font-size: 0.9em;
+          transform-origin: left;
+          transform: rotate(320deg);
+
+          &:nth-child(1) { left: 0%; }
+          &:nth-child(2) { left: 50%; }
+          &:nth-child(3) { left: 100%; }
+        }
+      }
+    }
+
+    .skills-graph-info {
+      // TEMP  for first draft
+      opacity: 0;
+
+      @include flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-size: 28px;
+      padding-left: 15px;
+
+      .-info-button {
+        border: 0;
+        color: $color_white;
+        background-color: transparent;
+
+        &:hover {
+          color: $color_primary;
+        }
+      }
+    }
+  }
+}
