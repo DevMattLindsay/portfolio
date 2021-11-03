@@ -18,7 +18,8 @@
 			$('.js-scroll-link').on('click', function(){
 				$('html, body').animate({ scrollTop: $($(this).attr('js-scroll-to')).offset().top}, 100);
 
-				$('.sidebar-toggle').trigger('click');
+				$(this).removeClass('-active');
+				$('.sidebar').removeClass('-active');
 			});
 		}
 
